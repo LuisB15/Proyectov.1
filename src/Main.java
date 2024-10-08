@@ -4,9 +4,6 @@ public class Main {
     public static void main(String[] args) {
 
         int i;
-        Equipos re=new Equipos();
-        Emparejamiento e=new Emparejamiento();
-        Fechas f=new Fechas();
         Creator c = new Creator();
         Scanner sc = new Scanner(System.in);
 
@@ -41,19 +38,18 @@ public class Main {
 
             switch (i) {
                 case 1:
-                    re.Registro();
+                    c.Registro();
                     break;
                 case 2:
-                    re.MostrarEquipos();
+                    c.MostrarEquipos();
                     break;
                 case 3:
-                    e.equipos=re.equipos;
-                    e.numEquipos=re.numEquipos;
-                    e.Rol(f);
+
+                    c.Rol();
                     break;
                 case 4:
-                    re.actualizarEquipos();
-                    re.Registro();
+                    c.actualizarEquipos();
+                    c.Registro();
                     break;
                 case 5:
                     salir = true;
