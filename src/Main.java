@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         int i;
-        Creator c = new Creator();
+        Creator c = new Creator();//objeto
         Scanner sc = new Scanner(System.in);
 
         boolean salir = false;
@@ -34,7 +34,7 @@ public class Main {
             System.out.println("5.- Escriba -salir- para abandonar el programa ");
 
             i= sc.nextInt();
-            sc.nextLine();
+            sc.nextLine();//liberar buffer
 
             switch (i) {
                 case 1:

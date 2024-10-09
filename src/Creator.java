@@ -11,19 +11,20 @@ public class Creator {
     Scanner sc=new Scanner(System.in);
     int numEquipos;
     String nombreTorneo;
-
+    //atributos
     public Creator(List<String> equipos, Scanner sc, int numEquipos,String nombreTorneo) {
         this.equipos = equipos;
         this.sc = sc;
         this.numEquipos = numEquipos;
         this.nombreTorneo = nombreTorneo;
     }
+    //constructor con los parametros
 
     public Creator() {
     }
-
+    //constructor para crear el objeto
     public void Registro(){
-
+    //metodo
 
         System.out.println("Ingrese el nombre del toreno:");
         nombreTorneo = sc.nextLine();
@@ -38,6 +39,7 @@ public class Creator {
         }
     }
     public void MostrarEquipos(){
+        //metodo
         System.out.println("Estos son los equipos registrados");
         Iterator it=equipos.iterator();
         while(it.hasNext()){
@@ -45,9 +47,11 @@ public class Creator {
         }
     }
     public void actualizarEquipos(){
+        //metodo
         equipos.clear();
     }
     public void Rol(){
+        //metodo
 
         System.out.println("Rol de juegos ");
         System.out.println("Local    Visitante ");
@@ -61,8 +65,9 @@ public class Creator {
 
         for(int round = 0; round < numEquipos -1 ; round++){
             System.out.println("\nJornada  " + (round+1)+"     Fecha :" +getFechas().get(round));
+            System.out.println();
             for( int i =0 ; i < numEquipos/2 ; i++){
-                int local=i;
+                int local=(i+round)%(numEquipos -1);
                 int visitante = (numEquipos-1-i+round)%(numEquipos-1);
 
                 if(i==0){
@@ -75,6 +80,8 @@ public class Creator {
         }
     }
     public void generarFechas(int numJornadas) {
+        //metodo
+
         LocalDate fechaInicial = LocalDate.now();
         for (int i = 0; i < numJornadas; i++) {
             fechas.add(fechaInicial.plusDays(i * 7));
