@@ -8,17 +8,19 @@ import java.util.Iterator;
 public class Creator {
     List<String> equipos=new ArrayList<>();
     private List<LocalDate> fechas = new ArrayList<>();
-    Scanner sc=new Scanner(System.in);
-    int numEquipos;
-    String nombreTorneo;
+    private final Scanner sc=new Scanner(System.in);
+    private int numEquipos;
+    private String nombreTorneo;
     //atributos
-    public Creator(List<String> equipos, Scanner sc, int numEquipos,String nombreTorneo) {
+
+    //constructor con los parametros
+
+    public Creator(List<String> equipos, List<LocalDate> fechas, int numEquipos, String nombreTorneo) {
         this.equipos = equipos;
-        this.sc = sc;
+        this.fechas = fechas;
         this.numEquipos = numEquipos;
         this.nombreTorneo = nombreTorneo;
     }
-    //constructor con los parametros
 
     public Creator() {
     }
@@ -26,7 +28,7 @@ public class Creator {
     public void Registro(){
     //metodo
 
-        System.out.println("Ingrese el nombre del toreno:");
+        System.out.println("Ingrese el nombre del torneo:");
         nombreTorneo = sc.nextLine();
         System.out.println("Cuantos equipos desea registrar (Recomendamos que sea un numeor par ): ");
         numEquipos = sc.nextInt();

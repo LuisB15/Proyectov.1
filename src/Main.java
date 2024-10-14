@@ -29,7 +29,7 @@ public class Main {
             System.out.println("Elija una opccion");
             System.out.println("1.- Registro");
             System.out.println("2.- Equipos Registrados");
-            System.out.println("3.- Crear Toreno");
+            System.out.println("3.- Crear Torneo");
             System.out.println("4.- Actualizar Torneo");
             System.out.println("5.- Escriba -salir- para abandonar el programa ");
 
