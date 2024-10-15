@@ -9,13 +9,13 @@ public class Creator {
     List<String> equipos=new ArrayList<>();
     private List<LocalDate> fechas = new ArrayList<>();
     private final Scanner sc=new Scanner(System.in);
-    private int numEquipos;
+    private int numEquipos,numDias;
     private String nombreTorneo;
     //atributos
 
     //constructor con los parametros
 
-    public Creator(List<String> equipos, List<LocalDate> fechas, int numEquipos, String nombreTorneo) {
+    public Creator(List<String> equipos, List<LocalDate> fechas, int numEquipos,int numDias, String nombreTorneo) {
         this.equipos = equipos;
         this.fechas = fechas;
         this.numEquipos = numEquipos;
@@ -86,13 +86,11 @@ public class Creator {
 
         LocalDate fechaInicial = LocalDate.now();
         for (int i = 0; i < numJornadas; i++) {
-            fechas.add(fechaInicial.plusDays(i * 7));
+            fechas.add(fechaInicial.plusDays(i * 7 ));
         }
     }
 
     public List<LocalDate> getFechas() {
         return fechas;
     }
-
-
 }

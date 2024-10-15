@@ -9,22 +9,25 @@ public class Main {
 
         boolean salir = false;
         while (!salir) {
-            System.out.println("  ____  _                           _     _       \n" +
-                    " | __ )(_) ___ _ ____   _____ _ __ (_) __| | ___  \n" +
-                    " |  _ \\| |/ _ \\ '_ \\ \\ / / _ \\ '_ \\| |/ _` |/ _ \\ \n" +
-                    " | |_) | |  __/ | | \\ V /  __/ | | | | (_| | (_) |\n" +
-                    " |____/|_|\\___|_| |_|\\_/ \\___|_| |_|_|\\__,_|\\___/ \n" +
-                    "                                                  ");
-            System.out.println("             ___________\n" +
-                    "            '._==_==_=_.'\n" +
+            System.out.println("  _   ___    _   ____           ____   _   _   _____                 ");
+            System.out.println(" | | |   \\  | | /  __|        /  ___| | | | | |  _  \\               ");
+            System.out.println(" | | | |\\ \\ | | | | __        | |     | | | | | |_| |                   ");
+            System.out.println(" | | | | \\ \\| | | |_\\ \\  _    | |___  | |_| | |  ___/                ");
+            System.out.println(" |_| |_|  \\___| \\_____/ (_)   \\_____|  \\___/  |_|                       ");
+            System.out.println("                                                              ");
+            System.out.println("             !!B I E N V E N I D O!!                            ");
+            System.out.println("                    ING. CUP                           ");
+            System.out.println();
+            System.out.println("                _____\n" +
+                    "              '.=====.'\n" +
                     "            .-\\:      /-.\n" +
                     "           | (|:.     |) |\n" +
                     "            '-|:.     |-'\n" +
                     "              \\::.    /\n" +
                     "               '::. .'\n" +
                     "                 ) (\n" +
-                    "               _.' '._\n" +
-                    "              `\"\"\"\"\"\"\"`");
+                    "               .' '.\n" +
+                    "              \"\"\"\"\"\"\"");
             System.out.println("Crea tu rol de juego");
             System.out.println("Elija una opccion");
             System.out.println("1.- Registro");
@@ -63,7 +66,6 @@ public class Main {
             System.out.println();
 
         }
-
         sc.close();
     }
 }
