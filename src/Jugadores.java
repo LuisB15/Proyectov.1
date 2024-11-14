@@ -3,34 +3,30 @@ import java.util.*;
 public class Jugadores extends Equipos {
 
     List<String> jugadores = new ArrayList<>();
-    HashMap<String, ArrayList<Jugador>> JugadoresEquipo;
-    int maxJugadores;
+    HashMap<String, ArrayList<Jugador>> JugadoresEquipo = new HashMap<>();  // Inicializar aquí
+    int maxJugadores = 10 ;
     Scanner sc = new Scanner(System.in);
 
     public Jugadores(List<String> jugadores, HashMap<String, ArrayList<Jugador>> jugadoresEquipo, int maxJugadores, Scanner sc) {
         this.jugadores = jugadores;
-        JugadoresEquipo = jugadoresEquipo;
+        JugadoresEquipo = jugadoresEquipo != null ? jugadoresEquipo : new HashMap<>();  // Asegurarse de no ser nulo
         this.maxJugadores = maxJugadores;
         this.sc = sc;
     }
 
-    public Jugadores(String nombreTorneo, int numEquipos, int numJornadas, List<String> equipos, Scanner sc, List<String> jugadores, String equipoSeleccionado) {
+    public Jugadores(String nombreTorneo, int numEquipos, int numJornadas, List<String> equipos, Scanner sc, String equipoSeleccionado, List<String> jugadores, HashMap<String, ArrayList<Jugador>> jugadoresEquipo, int maxJugadores, Scanner sc1) {
         super(nombreTorneo, numEquipos, numJornadas, equipos, sc, equipoSeleccionado);
         this.jugadores = jugadores;
+        JugadoresEquipo = jugadoresEquipo;
+        this.maxJugadores = maxJugadores;
+        this.sc = sc1;
     }
 
-    public Jugadores(List<String> jugadores) {
-        this.jugadores = jugadores;
-    }
-
-    public Jugadores() {
-        JugadoresEquipo = new HashMap<>();
-    }
+    public Jugadores() {}
 
     class Jugador {
         String nombre, facultad;
         int edad;
-
 
         public Jugador(String nombre, String facultad, int edad) {
             this.nombre = nombre;
@@ -40,7 +36,7 @@ public class Jugadores extends Equipos {
 
         @Override
         public String toString() {
-            return "Jugador{" + "nombre='" + nombre + '\'' + ", facultad='" + facultad + '\'' + ", edad=" + edad + '}';
+            return "Jugador:" + "Nombre:" + nombre + ", facultad:" + facultad +   ", Edad:" + edad ;
         }
     }
 
@@ -49,7 +45,7 @@ public class Jugadores extends Equipos {
         for (int i = 0; i < equipos.size(); i++) {
             System.out.println(i + 1 + ". " + equipos.get(i));
         }
-        System.out.println("Seleccione un equipo ingresando el numero ");
+        System.out.println("Seleccione un equipo ingresando el número ");
         int indice = sc.nextInt() - 1;
         sc.nextLine();
 
@@ -63,25 +59,10 @@ public class Jugadores extends Equipos {
         }
     }
 
-
-    public void registro() {
-        System.out.println("Ingrese el nombre del jugador: ");
-        System.out.println("Ingerese el nombre de los jugadores:");
-        for (int i = 0; i < maxJugadores; i++) {
-            System.out.println("\n Jugador" + (i + 1) + ":");
-            String player = sc.nextLine();
-            jugadores.add(player);
-        }
-    }
-
-    public void registroJugador(String equipos) {
-
+    public void registroJugador() {
         selecEquipo();
-
         System.out.println("Registro para el equipo " + equipoSeleccionado);
-
         ArrayList<Jugador> jugadoresEquipo = new ArrayList<>();
-        boolean no = false;
 
         while (jugadoresEquipo.size() < maxJugadores) {
             System.out.println("Ingrese los datos del jugador " + (jugadoresEquipo.size() + 1) + ":");
@@ -99,25 +80,26 @@ public class Jugadores extends Equipos {
             jugadoresEquipo.add(jugador);
 
             if (jugadoresEquipo.size() < maxJugadores) {
-                System.out.println("Desea agregar a otro Jugador?");
+                System.out.println("¿Desea agregar a otro jugador?");
                 String response = sc.nextLine();
                 if (response.equals("no")) {
                     break;
                 }
-
-
             }
         }
-        JugadoresEquipo.put(equipos, jugadoresEquipo);
+        JugadoresEquipo.put(equipoSeleccionado, jugadoresEquipo);
+        System.out.println("Número de equipos registrados: " + JugadoresEquipo.size());
     }
+
 
     public void mostrarJugadores() {
         System.out.println("Jugadores:");
-        Iterator it = JugadoresEquipo.entrySet().iterator();
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        for (Map.Entry<String, ArrayList<Jugador>> entry : JugadoresEquipo.entrySet()) {
+            System.out.println("Equipo: " + entry.getKey());
+            for (Jugador jugador : entry.getValue()) {
+                System.out.println(jugador);
+            }
         }
-
     }
 
     public void editarInfo() {
@@ -125,6 +107,8 @@ public class Jugadores extends Equipos {
             System.out.println("No existe un equipo");
             return;
         }
+
+        mostrarJugadores();
 
         System.out.println("Seleccione que equipo quiere modificar: ");
         String equipoSeleccionado = sc.nextLine();
@@ -147,14 +131,12 @@ public class Jugadores extends Equipos {
                 jugador.edad = sc.nextInt();
                 sc.nextLine(); // Liberar el buffer
 
-                System.out.println("¡Datos actualizados correctamente!");
+                System.out.println("Datos actualizados correctamente");
             } else {
-                System.out.println("Número de jugador inválido.");
+                System.out.println("Número de jugador inválido");
             }
         } else {
-            System.out.println("Equipo no encontrado.");
+            System.out.println("Equipo no encontrado");
         }
     }
-
-
 }

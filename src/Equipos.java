@@ -24,6 +24,10 @@ public class Equipos extends Registro {
     public void registro() {
         super.registro();
     }
+    public void actualizarDatos(){
+        super.actulizarDatos();
+
+    }
 
     public void registroEquipos() {
         System.out.println("Ingerese el nombre de los equipos");
@@ -44,7 +48,7 @@ public class Equipos extends Registro {
         }
     }
 
-    public void actulizarDatos() {
+    public void actulizarEquipos() {
         System.out.println("Que accion quiere hacer:");
         System.out.println("1. Agregar equipo");
         System.out.println("2. Eliminar equipo");
@@ -53,10 +57,10 @@ public class Equipos extends Registro {
         sc.nextLine();
         switch (op) {
             case 1:
-                editarTorneo();
+                agurgarEquipo();
                 break;
             case 2:
-                editarNumEquipos();
+                eliminarEquipo();
                 break;
 
             default:
@@ -68,6 +72,7 @@ public class Equipos extends Registro {
         String nuevoEquipo = sc.nextLine();
         equipos.add(nuevoEquipo);
         System.out.println("Equipo agregado exitosamente");
+        mostrarDatos();
     }
     public void eliminarEquipo() {
         System.out.println("Ingrese el nombre del equipo que desea eliminar:");
