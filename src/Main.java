@@ -1,10 +1,17 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        List<Equipos> equipos=new ArrayList<>();
         int i;
-        Creator c = new Creator();//objeto
+        Equipos e=new Equipos();
+
+        Jugadores j = new Jugadores();
+        Torneo t = new Torneo();
+        Fechas f = new Fechas();
         Scanner sc = new Scanner(System.in);
 
         boolean salir = false;
@@ -30,10 +37,10 @@ public class Main {
                     "              \"\"\"\"\"\"\"");
             System.out.println("Crea tu rol de juego");
             System.out.println("Elija una opccion");
-            System.out.println("1.- Registro");
-            System.out.println("2.- Equipos Registrados");
+            System.out.println("1.- Crear torneo");
+            System.out.println("2.- Registrar Equipos");
             System.out.println("3.- Crear Torneo");
-            System.out.println("4.- Actualizar Torneo");
+            System.out.println("4.- Actualizar datos");
             System.out.println("5.- Escriba -salir- para abandonar el programa ");
 
             i= sc.nextInt();
@@ -41,18 +48,21 @@ public class Main {
 
             switch (i) {
                 case 1:
-                    c.Registro();
+                    e.registro();
+                    e.mostarDatos();
+
                     break;
                 case 2:
-                    c.MostrarEquipos();
+                    e.registroEquipos();
+                    e.mostarDatos();
+
                     break;
                 case 3:
-
-                    c.Rol();
+                    t.equipos=e.equipos;
+                    t.numEquipos=e.numEquipos;
+                    t.Rol(f);
                     break;
                 case 4:
-                    c.actualizarEquipos();
-                    c.Registro();
                     break;
                 case 5:
                     salir = true;
@@ -60,7 +70,6 @@ public class Main {
                 default:
                     System.out.println("Opcion no valida");
                     break;
-
             }
 
             System.out.println();
