@@ -40,7 +40,7 @@ public class Equipos extends Registro {
     }
 
     public void mostrarDatos() {
-        super.mostarDatos();
+        super.mostrarDatos();
         System.out.println("Estos son los equipos registrados");
         Iterator it = equipos.iterator();
         while (it.hasNext()) {
@@ -75,6 +75,7 @@ public class Equipos extends Registro {
         mostrarDatos();
     }
     public void eliminarEquipo() {
+        mostrarDatos();
         System.out.println("Ingrese el nombre del equipo que desea eliminar:");
         String eliminar = sc.nextLine();
         if (equipos.remove(eliminar)) {

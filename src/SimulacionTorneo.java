@@ -1,19 +1,22 @@
 import java.util.*;
 
-public class SimulacionTorneo extends Torneo {
+public class SimulacionTorneo extends Equipos {
 
     public SimulacionTorneo(String nombreTorneo, int numEquipos, int numJornadas, List<String> equipos, Scanner sc, String equipoSeleccionado) {
         super(nombreTorneo, numEquipos, numJornadas, equipos, sc, equipoSeleccionado);
     }
 
     public SimulacionTorneo() {
+        super();
 
     }
 
-    // Simular los goles y obtener el ganador
+
+
+
     public String jugarPartido(String equipo1, String equipo2) {
         Random rand = new Random();
-        int golesEquipo1 = rand.nextInt(6); // Goles aleatorios entre 0 y 5
+        int golesEquipo1 = rand.nextInt(6);
         int golesEquipo2 = rand.nextInt(6);
 
         System.out.println(equipo1 + " " + golesEquipo1 + " - " + golesEquipo2 + " " + equipo2);
@@ -23,14 +26,21 @@ public class SimulacionTorneo extends Torneo {
         } else if (golesEquipo2 > golesEquipo1) {
             return equipo2;
         } else {
-            // En caso de empate, decidir aleatoriamente
-            return rand.nextBoolean() ? equipo1 : equipo2;
+
+            String ganador = rand.nextBoolean() ? equipo1 : equipo2;
+            System.out.println("Ganador en penales: " + ganador);
+            return ganador;
+
         }
     }
 
-    // Jugar la ronda de semifinales
+
     public List<String> jugarSemifinales(List<String> equipos) {
         List<String> semifinalistas = new ArrayList<>();
+
+        super.mostrarDatos();
+
+        System.out.println("Ronda de eliminacion");
 
         for (int i = 0; i < equipos.size(); i += 2) {
             String ganador = jugarPartido(equipos.get(i), equipos.get(i + 1));
@@ -40,7 +50,7 @@ public class SimulacionTorneo extends Torneo {
         return semifinalistas;
     }
 
-    // Jugar la ronda de finales
+
     public String jugarFinal(List<String> equipos) {
         if (equipos.size() < 4) {
             System.out.println("No hay suficientes equipos para las finales.");
@@ -55,7 +65,6 @@ public class SimulacionTorneo extends Torneo {
         return jugarPartido(finalista1, finalista2);
     }
 
-    // Simular el torneo completo
     public void simularTorneo() {
         if (equipos.isEmpty()) {
             System.out.println("No hay equipos registrados para simular el torneo.");

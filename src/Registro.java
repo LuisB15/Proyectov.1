@@ -28,7 +28,7 @@ public class Registro {
 
 
     }
-    public void mostarDatos(){
+    public void mostrarDatos(){
 
         System.out.println("Nombre del toreno: "+nombreTorneo);
         System.out.println("Numero de equipos registrado: "+numEquipos);

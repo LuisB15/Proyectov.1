@@ -52,12 +52,12 @@ public class Main {
             switch (i) {
                 case 1:
                     e.registro();
-                    e.mostarDatos();
+
 
                     break;
                 case 2:
                     e.registroEquipos();
-                    e.mostarDatos();
+                    e.mostrarDatos();
 
                     break;
 
@@ -69,6 +69,7 @@ public class Main {
                 case 4:
                     t.equipos=e.equipos;
                     t.numEquipos=e.numEquipos;
+                    t.nombreTorneo=e.nombreTorneo;
                     t.Rol(f);
                     break;
                 case 5:
@@ -95,8 +96,9 @@ public class Main {
                     break;
 
                 case 6:
-
                     s.equipos=e.equipos;
+                    s.nombreTorneo=e.nombreTorneo;
+                    s.numEquipos=e.numEquipos;
                     s.simularTorneo();
                     break;
 

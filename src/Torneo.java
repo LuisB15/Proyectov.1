@@ -11,8 +11,10 @@ public class Torneo extends Equipos{
         super(nombreTorneo, numEquipos, numJornadas, equipos, sc, equipoSleccionado);
     }
 
+
     //se usa el algoritmo round-robin , basicamente es un algoritmo de "todos contra todos" que nos va a servir para hacer el emparejamiento de los equipos
     public void Rol(Fechas f){
+        super.mostrarDatos();
         System.out.println("Rol de juegos ");
         System.out.println("Local    Visitante ");
         f.generarFechas(numEquipos-1);
